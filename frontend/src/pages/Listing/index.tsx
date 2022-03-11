@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import axios from "axios";
 import { useState, useEffect } from "react";
 import MovieCard from "components/MovieCard";
@@ -7,7 +8,7 @@ import { MoviePage } from "Types/movie";
 
 function listing() {
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+
     const [pageNumber, setPageNumber] = useState(0);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -26,7 +27,7 @@ function listing() {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
+        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=id`)
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
