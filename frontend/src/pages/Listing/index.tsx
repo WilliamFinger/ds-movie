@@ -11,7 +11,7 @@ function listing() {
 
     const [pageNumber, setPageNumber] = useState(0);
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+
     const [page, setPage] = useState<MoviePage>({
         content: [],
         last: true,
@@ -34,10 +34,14 @@ function listing() {
             });
     }, [pageNumber]);
 
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+    
     return (
         <>
 
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange} />
 
             <div className="container">
                 <div className="row">
